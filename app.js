@@ -667,7 +667,7 @@
         } 
         // Creamos funcion donde recorremos la lista characters mapeando los datos solicitados y los meteremos en una variable
         const myFunctionMap = () => {
-            const extract = rmCharacters.characters.map((character) => ({
+            const extract = rmCharacters.results.map((character) => ({
                 name: character.name,
                 status: character.status,
                 origin: character.origin.name,
@@ -675,10 +675,10 @@
                 image: character.image,
             }))
 
-            printInDocument(extract)
+            printInDocument(extract);
         }
 
-    myFunctionMap();
+        myFunctionMap();
 
 
 
