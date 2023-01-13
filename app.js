@@ -1,5 +1,5 @@
 //Dado los siguientes datos: tendréis que mapear los personajes para obtener el nombre, el status, el nombre del origen, el nombre de la localizacion y la imagen
-const characters = {
+        const characters = {
     info: {
       count: 826,
       pages: 42,
@@ -645,9 +645,47 @@ const characters = {
       },
     ],
   };
-  
+
+    // Realizar mapeado de la lista characters con los datos que nos solicitan, se creará una nueva lista con los datos obtenidos.
+        const myFunctionMap = () => {
+       
+        //Recuperamos el contenedor de HTML -> NODO
+        const container = document.querySelector("#container");
+        console.log(container);
+
+        //Declaramos la función que, recorriendo una lista, nos pinta templates de html en el documento
+        const printInDocument = (list) => {
+        //Y ahora iteramos en la lista y por cada uno de los item...
+        for (const item of list) {
+            container.innerHTML += `
+            <div class='card'>
+                <h2>${item.name}</h2>
+                <p>${item.status}</p>
+                <p>${item.origin}</p>
+                <p>${item.location}</p>
+                <img src=${item.image} alt=${item.name} />
+            </div>
+            `;
+        }
+    } 
+
+        const extract = characters.map((character) => ({
+            name: character.name,
+            status: character.status,
+            origin: character.origin.name,
+            location: character.location.name,
+            image: character.image,
+        }));
+
+        printInDocument(extract)
+    }
+
+    myFunctionMap();
+
+
+
   //COMENTAR TODO LO DE ABAJO Y HACEDLO ANTES DE ESTA LINEA
-  //Ejemplo:
+  /*//Ejemplo:
   const swCharacters = {
     info: {
       totalCharacters: 714,
@@ -809,3 +847,4 @@ const characters = {
   };
   
   mapCharacters();
+  */
